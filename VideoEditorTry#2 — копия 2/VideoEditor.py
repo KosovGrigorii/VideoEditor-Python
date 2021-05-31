@@ -24,7 +24,6 @@ from video_cutter import *
 import TimeLine
 from FADEINOUTWINDOW import FadeWindow
 #from TimeLine import QTimeLine
-from VideoEditingFunctions import QMovie
 from VideoItself import VideoWindow
 
 
