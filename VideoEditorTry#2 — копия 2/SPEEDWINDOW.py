@@ -31,16 +31,16 @@ class SpeedWindow(QWidget):
             singleStep=1,
             pageStep=1
         )
+        self.slider.setValue(5)
+
         label_value = QLabel(alignment=Qt.AlignCenter)
-        self.slider.valueChanged.connect(label_value.setNum)
-        label_value.setNum(self.slider.value())
+        self.slider.valueChanged.connect(lambda: label_value.setNum(self.slider.value() / 5))
+        label_value.setNum(self.slider.value() / 5)
 
 
         self.layout = QVBoxLayout()
-        self.note = QLabel("5 is normal")
         self.ok = QPushButton("Set New Speed")
 
-        self.layout.addWidget(self.note)
         self.layout.addWidget(self.slider)
         self.layout.addWidget(label_value)
         self.layout.addWidget(self.ok)

@@ -25,8 +25,10 @@ class AudioWindow(QWidget):
         self.layout = QVBoxLayout()
         self.concat = QPushButton('Import Audio')
         self.done = QPushButton("Concatenate")
+        self.imp = QLabel()
 
         self.layout.addWidget(self.concat)
+        self.layout.addWidget(self.imp)
         self.layout.addWidget(self.done)
         self.concat.clicked.connect(self.import_vid)
         self.done.clicked.connect(lambda: self.vindow.concatenate_audio(self, self.file_name))
@@ -37,3 +39,5 @@ class AudioWindow(QWidget):
         file_name, _ = QFileDialog.getOpenFileName()
         if file_name != '':
             self.file_name = file_name
+            self.imp.setText("Audio is imported")
+

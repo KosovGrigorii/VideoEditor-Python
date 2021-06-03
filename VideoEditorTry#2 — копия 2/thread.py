@@ -83,7 +83,7 @@ class Thread(QThread):
         elif self.msg == Thread.MSG_CHANGE_SPEED_VIDEO:
             subclip_name = change_speed(self.video_name, self.speed)
         elif self.msg == Thread.MSG_RATIO_VIDEO:
-            subclip_name = change_size(self.video_name, self.ratiox, self.ratioy)
+            subclip_name = change_size(self.video_name, self.ratioy, self.ratiox)
         elif self.msg == Thread.MSG_REMOVE_AUDIO_VIDEO:
             subclip_name = remove_audio(self.video_name,  self.start_time, self.end_time)
         elif self.msg == Thread.MSG_CONCATENATE_AUDIO_VIDEO:

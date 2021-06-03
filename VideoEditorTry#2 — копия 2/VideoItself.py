@@ -387,12 +387,10 @@ class VideoWindow(QWidget):
         self.thread.wait()
         wind.destroy()
 
-    def change_size_video(self, wind, x, y):
+    def change_size_video(self, wind, ratioy, ratiox):
         self.thread = Thread()
-        ratiox = float(x)
-        ratioy = float(y)
         self.thread.set_params(Thread.MSG_RATIO_VIDEO, self.video_name,
-                                   self.record_start_time / 1000, self.record_end_time / 1000, ratiox=ratiox, ratioy=ratioy)
+                                   self.record_start_time / 1000, self.record_end_time / 1000, ratioy=ratioy, ratiox=ratiox)
         self.thread.signal_return_value.connect(self.thread_done)
         self.thread.start()
         self.thread.wait()

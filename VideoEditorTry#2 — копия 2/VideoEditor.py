@@ -41,6 +41,7 @@ class MainWidget(QWidget):
         self.i = 0
         self.j = 0
         self.videoSamples = []
+        self.icons = []
 
 
         layout3 = QVBoxLayout()
@@ -154,11 +155,16 @@ class MainWidget(QWidget):
     def playSelectedItem(self, event, filename):
         self.VideoPlay.openFile(filename)
         self.VideoPlay.video_name = filename
+        for v in self.icons:
+            v.setStyleSheet("border: 0px solid blue;")
         self.videoSamples.clear()
+        self.icons.clear()
         #return item.text()
 
     def add_to_concatenate(self, event, filename, label):
         self.videoSamples.append(filename)
+        self.icons.append(label)
+        label.setStyleSheet("border: 3px solid blue;")
 
     def show_sub_window(self, window):
         window.show()

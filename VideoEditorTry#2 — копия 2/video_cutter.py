@@ -173,11 +173,11 @@ def change_speed(video_name, speed=1, start_time=0, end_time=None):
     final.write_videofile(cut_video_name)
     return cut_video_name
 
-def change_size(video_name, ratiox=1, ratioy=1, start_time=0, end_time=None):
+def change_size(video_name,  ratioy=1, ratiox=1, start_time=0, end_time=None):
     clip = VideoFileClip(video_name)
     if not end_time:
         end_time = clip.duration
-    clip = clip.resize(width=clip.w*ratiox, height=clip.h*ratioy)
+    clip = clip.resize(width=clip.w*ratioy, height=clip.h*ratiox)
     dot_index = video_name.rfind('.')
     cut_video_name = video_name[: dot_index] + '{}'.format("change_size") + video_name[dot_index:]
     clip.write_videofile(cut_video_name)
